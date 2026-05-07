@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Whistle Reaction</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game-shell">
+    <section class="stadium-card" aria-live="polite">
+      <div class="top-bar">
+        <span class="badge">Night Match</span>
+        <span class="score-pill">Score: <strong id="scoreText">0</strong></span>
+      </div>
+
+      <section id="homeScreen" class="screen active">
+        <div class="title-block">
+          <p class="eyebrow">Football reaction challenge</p>
+          <h1>Final Whistle Reaction</h1>
+          <p class="intro">
+            Read the play, trust your instincts, and make the right football decision before the clock runs out.
+          </p>
+        </div>
+
+        <div class="home-visual" aria-hidden="true">
+          <img class="goal-net" src="images/stadium1.png" alt="">
+          <img class="football-target home-ball" src="images/shoot1.png" alt="">
+        </div>
+
+        <form id="setupForm" class="setup-form">
+          <label class="field-label" for="playerName">Player name</label>
+          <input id="playerName" class="name-input" type="text" maxlength="18" placeholder="Enter your name" required>
+
+          <p class="field-label">Difficulty</p>
+          <div class="difficulty-grid" role="radiogroup" aria-label="Choose difficulty">
+            <label class="difficulty-card">
+              <input type="radio" name="difficulty" value="easy">
+              <span>Easy</span>
+              <small>5 seconds</small>
+            </label>
+            <label class="difficulty-card">
+              <input type="radio" name="difficulty" value="medium" checked>
+              <span>Medium</span>
+              <small>3 seconds</small>
+            </label>
+            <label class="difficulty-card">
+              <input type="radio" name="difficulty" value="hard">
+              <span>Hard</span>
+              <small>1.5 seconds</small>
+            </label>
+          </div>
+        </form>
+
+        <button id="startButton" class="primary-button">Start Game</button>
+      </section>
+
+      <section id="gameScreen" class="screen">
+        <div class="round-header">
+          <div>
+            <p class="label">Round</p>
+            <h2><span id="roundText">1</span>/10</h2>
+          </div>
+          <div class="match-details">
+            <p id="playerText">Player</p>
+            <strong id="difficultyText">Medium</strong>
+          </div>
+          <div class="reaction-stat">
+            <p>Reaction</p>
+            <strong id="reactionText">--</strong>
+          </div>
+          <div class="timer-wrap" aria-label="Countdown timer">
+            <svg class="timer-ring" viewBox="0 0 72 72">
+              <circle class="timer-track" cx="36" cy="36" r="30"></circle>
+              <circle id="timerProgress" class="timer-progress" cx="36" cy="36" r="30"></circle>
+            </svg>
+            <span id="timerText">3.0</span>
+          </div>
+        </div>
+
+        <div class="timer-bar" aria-hidden="true">
+          <span id="timerBarFill"></span>
+        </div>
+
+        <div id="targetZone" class="target-zone" aria-hidden="true">
+          <img class="goal-net" src="images/stadium1.png" alt="">
+          <img class="defender-image" src="images/defend.png" alt="">
+          <img id="footballTarget" class="football-target" src="images/shoot1.png" alt="">
+        </div>
+
+        <div id="situationCard" class="situation-card">
+          <p class="label">Situation</p>
+          <h2 id="situationText">The ball drops to you at the edge of the box.</h2>
+        </div>
+
+        <div id="answerButtons" class="answer-grid">
+          <button class="answer-button" data-answer="Pass">Pass</button>
+          <button class="answer-button" data-answer="Shoot">Shoot</button>
+          <button class="answer-button" data-answer="Dribble">Dribble</button>
+          <button class="answer-button" data-answer="Defend">Defend</button>
+        </div>
+
+        <p id="feedbackText" class="feedback" role="status"></p>
+      </section>
+
+      <section id="endScreen" class="screen">
+        <p class="eyebrow">Full time</p>
+        <h2 class="end-title">Final Score</h2>
+        <p id="finalScoreText" class="final-score">0</p>
+        <p id="ratingText" class="rating">Beginner</p>
+        <div class="result-stats">
+          <p>Best reaction time</p>
+          <strong id="bestReactionText">--</strong>
+        </div>
+        <img class="end-stadium-image" src="images/1st pic.jpeg" alt="">
+        <div class="leaderboard-panel">
+          <h3>Top 5 Scores</h3>
+          <ol id="leaderboardList" class="leaderboard-list"></ol>
+        </div>
+        <button id="playAgainButton" class="primary-button">Play Again</button>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
